@@ -64,22 +64,30 @@ var_slope <- function(x, var_residual) {
 }
 
 #' @export
+se_slope <- function(x, y) {
+  f <- fit(x, slope(x, y), intercept(x, y))
+  var_r <- var_residual(y, f)
+  return(sqrt(var_r / Sxx(x)))
+}
+
+#' @export
+se_intercept <- function(x, y) {
+  n <- length(x)
+  f <- fit(x, slope(x, y), intercept(x, y))
+  var_r <- var_residual(y, f)
+  return(sqrt(var_r * ((1 / n) + (mean(x) ^ 2 / Sxx(x)))))
+}
+
+#' @export
 t0_slope <- function(x, y, beta0) {
   s <- slope(x, y)
-  i <- intercept(x, y)
-  f <- fit(x, s, i)
-  var_r <- var_residual(y, f)
-  return((s - beta0) / sqrt(var_r / Sxx(x)))
+  return((s - beta0) / se_slope(x, y))
 }
 
 #' @export
 t0_intercept <- function(x, y, beta0) {
-  n <- length(x)
-  s <- slope(x, y)
   i <- intercept(x, y)
-  f <- fit(x, s, i)
-  var_r <- var_residual(y, f)
-  return((i - beta0) / sqrt(var_r / ((1 / n) + (mean(x) ^ 2 / Sxx(x)))))
+  return((i - beta0) / se_intercept(x, y))
 }
 
 #' @export
