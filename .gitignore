@@ -1,2 +1,3 @@
 renv/library/*
 renv/staging/*
+renv.lock
