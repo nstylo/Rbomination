@@ -1,3 +1,9 @@
+#' Returns the Sxx value
+#' 
+#' Also know as the predictor centered sum of squares
+#' 
+#' @param x A vector of numeric values
+#' 
 #' @export
 Sxx <- function(x) {
   n <- length(x)
