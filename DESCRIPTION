@@ -1,15 +1,12 @@
 Package: regrtest
 Title: Regression Test Utils
 Version: 0.1
-Authors@R:
-    person(given = "Niklas",
-           family = "Stylianou",
-           role = c("aut", "cre"),
-           email = "niklas@stylianou.info",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Utils for 2DI90 regression test.
+Authors@R: c(
+  	person(given = "Niklas", family = "Stylianou", role = c("aut", "cre"), email = "niklas@stylianou.info", comment = c(ORCID = "YOUR-ORCID-ID")),
+    person(given = "Gijs", family = "Leemrijse", role = c("ctb"), email = "gijs.leemrijse@gmail.com"))
+Description: Utils for 2DI90 regression and final test.
 License: `use_mit_license()`
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
